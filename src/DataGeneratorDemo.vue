@@ -53,7 +53,7 @@
                     <span class="truncate">std-dp.py</span>
                   </a>
                 </MenuItem>
-                <MenuItem v-slot="{ active, selected }">
+                <MenuItem v-slot="{ active, }">
                   <a :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'group flex items-center px-4 py-2 text-sm', 'font-semibold']">
                     <span class="mr-2 text-green-500">
                       <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -146,7 +146,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue';
 import { ChevronDownIcon } from '@heroicons/vue/24/outline';

@@ -13,27 +13,26 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue';
 
-const props = defineProps({
-  code: {
-    type: String,
-    required: true
-  },
-  tokens: {
-    type: Array,
-    required: true
-  }
-});
+interface Token {
+  content: string;
+  type: string;
+}
 
-const finerTokens = ref([]);
+const props = defineProps<{
+  code: string;
+  tokens: Token[];
+}>();
+
+const finerTokens = ref<Token[]>([]);
 
 onMounted(() => {
   // Split tokens into finer tokens: split by symbols and whitespace
   props.tokens.forEach(token => {
-    const finerTokensArray = token.content.split(/(\s+|\W)/).filter(t => t !== '');
-    finerTokens.value.push(...finerTokensArray.map(content => ({ 
+    const finerTokensArray = token.content.split(/(\s+|\W)/).filter((t: string) => t !== '');
+    finerTokens.value.push(...finerTokensArray.map((content: string) => ({ 
       content, 
       type: token.type 
     })));

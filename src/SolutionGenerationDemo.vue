@@ -60,8 +60,8 @@
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue';
 import { ChevronDownIcon } from '@heroicons/vue/24/outline';
 import CodeAppearAnime from './CodeAppearAnime.vue';

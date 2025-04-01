@@ -82,7 +82,6 @@
           <div class="pt-4">
             <button 
               class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-              @click="exportProblems"
             >
               Export Selected
             </button>
@@ -93,7 +92,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue';
 import { ChevronDownIcon } from '@heroicons/vue/24/outline';
@@ -105,10 +104,6 @@ const problems = ref([
   { id: 4, name: 'D. Double Palindrome' },
   { id: 5, name: 'E. Easy Problem' },
 ]);
-
-const exportProblems = () => {
-  console.log('Exporting problems in', selectedFormat.value);
-};
 
 </script>
 

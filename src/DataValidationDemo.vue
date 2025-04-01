@@ -142,13 +142,28 @@
     </table>
   </div>
 </template>
-
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import { CheckCircleIcon, ExclamationCircleIcon } from '@heroicons/vue/24/outline'
 
+type TestCaseResult = {
+  time: number
+  memory: string
+  status: 'AC' | 'WA' | ''
+}
+
+type TestCase = {
+  number: number
+  std_kadane_cpp: TestCaseResult
+  std_dp_cpp: TestCaseResult
+  std_kadane_py: TestCaseResult
+  std_dp_py: TestCaseResult
+  wrong_positive_only_py: TestCaseResult
+  wrong_n_square_cpp: TestCaseResult
+}
+
 // Helper function to choose color class for time usage.
-function timeClass(time) {
+function timeClass(time: number): string {
   if (time < 500) {
     return 'text-green-600'
   } else if (time < 1000) {
@@ -161,7 +176,7 @@ function timeClass(time) {
 }
 
 // Helper function to set the color for the answer status.
-function statusClass(status) {
+function statusClass(status: 'AC' | 'WA' | ''): string {
   if (status === 'AC') {
     return 'text-green-600'
   } else if (status === 'WA') {
@@ -171,15 +186,11 @@ function statusClass(status) {
 }
 
 // Generate 10 test case rows with values that align with the summary.
-// - std-kadane.cpp and std-dp.cpp: fast (green) and AC.
-// - std-kadane.py and std-dp.py: slower (yellow) but AC.
-// - wrong-positive-only.py: fast with WA.
-// - wrong-n-square.cpp: time >= 2000ms so no answer is provided.
-const testCases = ref(
-  Array.from({ length: 10 }, (_, i) => {
+const testCases = ref<TestCase[]>(
+  Array.from({ length: 10 }, (_, i): TestCase => {
     // Use a simple pseudo-random sequence based on index
     const seed = i * 123456789;
-    const rand = (min, max) => min + (seed % (max - min + 1));
+    const rand = (min: number, max: number): number => min + (seed % (max - min + 1));
     
     return {
       number: i + 1,

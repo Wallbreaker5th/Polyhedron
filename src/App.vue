@@ -177,7 +177,7 @@
             <!-- Feature Demo Panels -->
             <div class="mt-8 lg:col-span-9 lg:mt-0">
               <TabPanels class="p-2 pt-0">
-                <TabPanel v-for="(feature, index) in features" :key="feature.name" class="min-h-[400px]">
+                <TabPanel v-for="(feature, _) in features" :key="feature.name" class="min-h-[400px]">
                   <div class="mb-6">
                     <h3 class="text-xl font-bold text-gray-900">{{ feature.name }}</h3>
                     <p class="mt-2 text-gray-600">{{ feature.description }}</p>
@@ -266,12 +266,11 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import { Disclosure, DisclosureButton, DisclosurePanel, TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon, DocumentTextIcon, CodeBracketIcon, GlobeAltIcon, XCircleIcon, CpuChipIcon, ShieldCheckIcon, LockClosedIcon, ArrowUpOnSquareIcon, CheckIcon } from '@heroicons/vue/24/outline'
 import { TransitionRoot, TransitionChild } from '@headlessui/vue'
-import Dummy from './Dummy.vue'
 import StatementExpansionDemo from './StatementExpansionDemo.vue'
 import SolutionGenerationDemo from './SolutionGenerationDemo.vue'
 import MaterialGenerationDemo from './MaterialGenerationDemo.vue'
@@ -282,7 +281,6 @@ import AccessControlDemo from './AccessControlDemo.vue'
 import ExportDemo from './ExportDemo.vue'
 import Clarity from '@microsoft/clarity'
 
-const activeTab = ref(0)
 const mail = ref('')
 
 const features = [
