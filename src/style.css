@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+.keyword {
+  color: #0077aa; /* Example keyword color */
+  font-weight: bold;
+}
+
+.string {
+  color: #bb8844; /* Example string color */
+}
+
+.heading {
+  color: #228822; /* Example heading color */
+  font-weight: bold;
+}
+
+.function {
+  color: #dd4477; /* Example variable color */
+}
+
+.variable {
+  color: #333; /* Example variable color */
+}
+
+.punctuation {
+  color: #333; /* Example punctuation color */
+}
+
+.text {
+  color: #333; /* Default text color */
+}
+
+.formula {
+  color: #aa22ff; /* Example formula color */
+}
+
+.code-block {
+  color: #0077aa;
+}
+
+.comment {
+  color: #999; /* Example comment color */
+}
