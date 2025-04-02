@@ -239,15 +239,18 @@
             Start Creating Better Problems Today
           </h2>
           <p class="mt-6 text-lg leading-8 text-gray-600">
-            Join our waitlist to experience the future of competitive-programming problem creation. Be the first to know when we
-            launch.
+            <s>
+              Join our waitlist to experience the future of competitive-programming problem creation. Be the first to know when we launch.
+            </s>
+            <br />
+            It was just an April Fool's joke. However, I hope that we will have such a platform in the future.
           </p>
           <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-4">
-            <input type="email" placeholder="Enter your email" v-model="mail"
+            <input type="email" placeholder="April Fool's!" v-model="mail" readonly
               class="w-full sm:w-auto rounded-full border border-gray-300 px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg focus:outline-none focus:ring-2 focus:ring-blue-600" />
             <button
-              class="w-full sm:w-auto rounded-full bg-blue-600 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white hover:bg-blue-500 transition-colors"
-              @click="joinWaitlistOnClick">
+              class="w-full sm:w-auto rounded-full bg-blue-600 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white hover:bg-blue-500 transition-colors opacity-50"
+              disabled>
               Join Waitlist
             </button>
           </div>
@@ -373,22 +376,22 @@ const pricingPlans = [
   }
 ]
 
-function joinWaitlistOnClick() {
-  Clarity.event('join-waitlist')
+// function joinWaitlistOnClick() {
+//   Clarity.event('join-waitlist')
 
-  const aprilFoolsDate = new Date('2025-04-01T14:00:00');
-  const currentDate = new Date();
+//   const aprilFoolsDate = new Date('2025-04-01T14:00:00');
+//   const currentDate = new Date();
 
-  if (currentDate > aprilFoolsDate) {
-    alert('April Fools! 🎉\nThis was just a joke, but thanks for your interest!');
-  } else {
-    if (!mail.value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value)) {
-      alert('Please enter a valid email address');
-    } else {
-      alert('You have joined the waitlist! 🎉\nWe will notify you when we launch.');
-    }
-  }
-}
+//   if (currentDate > aprilFoolsDate) {
+//     alert('April Fools! 🎉\nThis was just a joke, but thanks for your interest!');
+//   } else {
+//     if (!mail.value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value)) {
+//       alert('Please enter a valid email address');
+//     } else {
+//       alert('You have joined the waitlist! 🎉\nWe will notify you when we launch.');
+//     }
+//   }
+// }
 </script>
 
 <style scoped>
